@@ -163,6 +163,7 @@ bool SdSpiCard::begin(SdSpiConfig spiConfig) {
       sdError(SD_CARD_ERROR_CMD0);
       goto fail;
     }
+	delay(250);
   }
 #if USE_SD_CRC
   if (cardCommand(CMD59, 1) != R1_IDLE_STATE) {
@@ -188,6 +189,7 @@ bool SdSpiCard::begin(SdSpiConfig spiConfig) {
       sdError(SD_CARD_ERROR_CMD8);
       goto fail;
     }
+	delay(250);
   }
   // initialize card and send host supports SDHC if SD2
   arg = cardType == SD_CARD_TYPE_SD2 ? 0X40000000 : 0;
@@ -197,6 +199,7 @@ bool SdSpiCard::begin(SdSpiConfig spiConfig) {
       sdError(SD_CARD_ERROR_ACMD41);
       goto fail;
     }
+	delay(250);
   }
   // if SD2 read OCR register to check for SDHC card
   if (cardType == SD_CARD_TYPE_SD2) {
@@ -213,6 +216,7 @@ bool SdSpiCard::begin(SdSpiConfig spiConfig) {
     }
   }
   spiStop();
+  delay(150);
   spiSetSckSpeed(spiConfig.maxSck);
   m_type = cardType;
 #if ENABLE_DEDICATED_SPI

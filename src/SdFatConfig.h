@@ -31,6 +31,9 @@
 #ifdef __AVR__
 #include <avr/io.h>
 #endif  // __AVR__
+#define USE_BLOCK_DEVICE_INTERFACE 1
+#define SDFAT_FILE_TYPE 1
+#define USE_SPI_ARRAY_TRANSFER 1
 // To try UTF-8 encoded filenames.
 //  #define USE_UTF8_LONG_NAMES 1
 //
@@ -142,7 +145,7 @@
 #define ENABLE_DEDICATED_SPI 1
 #else  // defined(__AVR__) && FLASHEND < 0X8000
 // All other boards.
-#define ENABLE_DEDICATED_SPI 1
+#define ENABLE_DEDICATED_SPI 0
 #endif  // defined(__AVR__) && FLASHEND < 0X8000
 #endif  // ENABLE_DEDICATED_SPI
 //------------------------------------------------------------------------------
