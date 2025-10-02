@@ -1,3 +1,13 @@
+###This is a forker version of original SdFat Library from Bill Greiman
+
+Major changes / adjustment : (28/09/2025)
+- added some delay in init sequence of SD for compatibility with SanDisk and older ones
+- edited SdFat_config.h to sute ESP32 target
+	BLOCK_DEVICE enabled
+	FILE_TYPE set to 3
+	SPI ARRAY Transfer
+	Disable Dedicated SPI
+
 ### Warning: This version has major internal changes.
 SdFat version 2.3.1 corrects handling of the exFAT fields validLength
 and dataLength.
